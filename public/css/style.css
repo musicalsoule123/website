@@ -1,0 +1,434 @@
+/* Base Styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Playful Header */
+  .classflow-header {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  .classflow-title {
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: bounce 2s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  /* Minimal Footer */
+  .classflow-footer {
+    text-align: center;
+    padding: 200px;
+    font-size: 0.7rem;
+    color: #999;
+    margin-left: 15px;
+  }
+  
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+  }
+  
+  /* Role Toggle */
+  .role-toggle {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+  
+  .role-toggle button {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+  }
+  
+  .role-toggle button.active {
+    background: #3498db;
+    color: white;
+  }
+  
+  /* Utility */
+  .hidden {
+    display: none;
+  }
+  /* Role Toggle Styling */
+.role-toggle {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .role-toggle a {
+    flex: 1;
+    padding: 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background: #eee;
+  }
+  
+  .role-toggle a.active {
+    background: #3498db;
+    color: white;
+  }
+  
+  /* Hide all login sections by default */
+  .login-section {
+    display: none;
+  }
+  
+  /* Show the targeted section */
+  .login-section:target {
+    display: block;
+  }
+  
+  /* Show student login by default if no target */
+  #student-login {
+    display: block;
+  }
+  
+  #student-login:target ~ #teacher-login,
+  #teacher-login:target ~ #student-login {
+    display: none;
+  }
+  /* Global Styles */
+:root {
+    --primary: #3498db;
+    --secondary: #2ecc71;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: #f9f9f9; */
+    background-image: url('./assets/front2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .header h1 {
+    color: var(--dark);
+    font-size: 2.5rem;
+  }
+  
+  /* Role Selection Cards */
+  .role-selection {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .role-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .role-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .role-card.student {
+    border-top: 4px solid var(--primary);
+  }
+  
+  .role-card.teacher {
+    border-top: 4px solid var(--secondary);
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #2980b9;
+  }
+  
+  .teacher .btn {
+    background: var(--secondary);
+  }
+  
+  .teacher .btn:hover {
+    background: #27ae60;
+  }
+  
+  /* Form Styles (Used in login/register pages) */
+  .form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 64px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: gold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-title {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 2rem;
+  }
+  
+  .form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  /* Header Styles */
+  .dashboard-header {
+    background: var(--dark);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  
+  .dashboard-header h1 {
+    margin: 0.5rem 0;
+  }
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Subject Grid */
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  
+  .subject-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+    border-radius: 12px;
+    /* font-size: 1.5rem; */
+    /* font-weight: bold; */
+    /* color: white; */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-decoration: none;
+    transition: transform 0.3s ease-out;
+    background-size: cover;
+    background-position: center;
+     /* background-color: var(--subject-color,#eee); */
+  } 
+  
+  .subject-btn:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .img-btn{
+    padding: 0;
+  background: transparent;
+ }
+
+  .subject-img{
+    width: 100%;
+  height: 100%;
+  /* object-fit: contain; */
+  padding: 5px; 
+  }
+  
+  /* Subject Colors */
+  .kannada { background:#e74c3c; }
+  .english { background: #3498db; }
+  .hindi { background: #9b59b6; }
+  .maths { background: #f39c12; }
+  .science { background: #2ecc71; }
+  .social { background: #1abc9c; }
+  
+  /* About Page */
+  .about-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .subject-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .subject-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
+  
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: larger;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 5px solid #ff0303;
+    width: 450px;
+    align-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.modal-message {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+}
+
+.close {
+    color: #100000;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 24%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  margin-top: 10%;
+}

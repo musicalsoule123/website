@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kannada | Digital Classroom</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the token and its expiration time from local storage
+        const token = localStorage.getItem('authToken');
+        const expirationTime = localStorage.getItem('tokenExpiration');
+
+        // Check if the token is missing or expired
+        if (!token || (expirationTime && Date.now() > expirationTime)) {
+            // Clear the token and expiration time from local storage
+            localStorage.removeItem('authToken'); // Make sure to use 'authToken'
+            localStorage.removeItem('tokenExpiration');
+            // Redirect to the login page
+            // window.location.href = 'index.html'; // Redirect to login page
+        } else {
+            // Token is valid, redirect to home page
+            window.location.href = 'home.html'; // Redirect to home page
+        }
+    });
+</script>
+  <style>
+    /* Enhanced Header with Join Class */
+    .subject-header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      position: relative;
+    }
+    
+    .join-class-container {
+      background: rgba(255,255,255,0.9);
+      padding: 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    
+    .join-btn {
+      background: #2ecc71;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .join-btn:hover {
+      background: #27ae60;
+      transform: translateY(-2px);
+    }
+    
+    .class-time {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #f8f8f8;
+    }
+    
+    /* Action Buttons (Improved) */
+    .action-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      padding: 0 1rem;
+    }
+    
+    .action-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      text-decoration: none;
+      color: #2c3e50;
+      border-top: 4px solid;
+      position: relative;
+    }
+    
+    .action-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    
+    .action-card.assignments {
+      border-color: #3498db;
+    }
+    
+    .action-card.grading {
+      border-color: #2ecc71;
+    }
+    
+    .action-card.feedback {
+      border-color: #9b59b6;
+    }
+    
+    .action-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      color: white;
+    }
+    
+    .action-icon.assignments {
+      background: #3498db;
+      box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+    }
+    
+    .action-icon.grading {
+      background: #2ecc71;
+      box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
+    }
+    
+    .action-icon.feedback {
+      background: #9b59b6;
+      box-shadow: 0 4px 6px rgba(155, 89, 182, 0.3);
+    }
+
+    ::-webkit-scrollbar{
+        display: none;
+    }
+  </style>
+</head>
+<body class="kannada">
+  <header class="subject-header">
+    <h1>Kannada Classroom</h1>
+    <p>Explore assignments and feedback</p>
+    
+    <div class="join-class-container">
+      <button class="join-btn" id="joinClassBtn">
+        🎯 Join Class
+      </button>
+      <span class="class-time" id="classTime">
+        Next class: Today at 10:30 AM
+      </span>
+    </div>
+  </header>
+
+  <main>
+    <div class="action-panel">
+      <a href="./assignment.html" class="action-card assignments">
+        <div class="action-icon assignments">📚</div>
+        <h3>Assignments</h3>
+        <p>View and submit your Kannada assignments</p>
+      </a>
+      
+      <a href="./feedback-form.html" class="action-card feedback">
+        <div class="action-icon feedback">💬</div>
+        <h3>Feedback</h3>
+        <p>provide feedback to your teacher</p>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Dynamic Class Time
+    function updateClassTime() {
+      const now = new Date();
+      const options = { 
+        weekday: 'long', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: true 
+      };
+      
+      // Simulated next class (in real app, fetch from backend)
+      const nextClass = new Date();
+      nextClass.setHours(10, 30, 0); // Set to 10:30 AM today
+      
+      document.getElementById('classTime').textContent = 
+        `Next class: ${nextClass.toLocaleDateString('en-US', options)}`;
+    }
+    
+    // Join Class Button
+    document.getElementById('joinClassBtn').addEventListener('click', function() {
+      // In real app, this would redirect to meeting URL
+      alert('Redirecting to virtual classroom...');
+      // window.location.href = "https://meet.example.com/kannada-class";
+    });
+    
+    // Initialize
+    updateClassTime();
+    
+    // Update time every minute
+    setInterval(updateClassTime, 60000);
+  </script>
+</body>
+</html>
